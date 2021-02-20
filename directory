@@ -1,0 +1,192 @@
+# Python program to explain os.mkdir() method 
+  
+# importing os module 
+import os 
+  
+# Directory 
+directory = "GeeksforGeeks"
+  
+# Parent Directory path 
+parent_dir = "D:/Pycharm projects/"
+  
+# Path 
+path = os.path.join(parent_dir, directory) 
+  
+# Create the directory 
+# 'GeeksForGeeks' in 
+# '/home / User / Documents' 
+os.mkdir(path) 
+print("Directory '% s' created" % directory) 
+  
+# Directory 
+directory = "Geeks"
+  
+# Parent Directory path 
+parent_dir = "D:/Pycharm projects"
+  
+# mode 
+mode = 0o666
+  
+# Path 
+path = os.path.join(parent_dir, directory) 
+  
+# Create the directory 
+# 'GeeksForGeeks' in 
+# '/home / User / Documents' 
+# with mode 0o666 
+os.mkdir(path, mode) 
+print("Directory '% s' created" % directory)
+# Python program to explain os.mkdir() method   
+      
+# importing os module   
+import os  
+    
+# Directory  
+directory = "GeeksForGeeks"
+    
+# Parent Directory path  
+parent_dir = "D:/Pycharm projects/"
+    
+# Path  
+path = os.path.join(parent_dir, directory)  
+    
+# Create the directory  
+# 'GeeksForGeeks' in  
+# '/home / User / Documents'  
+os.mkdir(path)  
+print("Directory '% s' created" % directory)  
+    
+# if directory / file that   
+# is to be created already  
+# exists then 'FileExistsError'  
+# will be raised by os.mkdir() method  
+    
+# Similarly, if the specified path  
+# is invalid 'FileNotFoundError' Error  
+# will be raised  
+# Python program to explain os.mkdir() method   
+      
+# importing os module   
+import os  
+    
+# path  
+path = 'D:/Pycharm projects / GeeksForGeeks'
+    
+# Create the directory  
+# 'GeeksForGeeks' in  
+# '/home / User / Documents'  
+try:  
+    os.mkdir(path)  
+except OSError as error:  
+    print(error) 
+    # Python program to explain os.makedirs() method   
+      
+# importing os module   
+import os  
+    
+# Leaf directory  
+directory = "Nikhil"
+    
+# Parent Directories  
+parent_dir = "D:/Pycharm projects/GeeksForGeeks/Authors"
+    
+# Path  
+path = os.path.join(parent_dir, directory)  
+    
+# Create the directory  
+# 'Nikhil'  
+os.makedirs(path)  
+print("Directory '% s' created" % directory)  
+    
+# Directory 'GeeksForGeeks' and 'Authors' will  
+# be created too   
+# if it does not exists  
+    
+    
+    
+# Leaf directory  
+directory = "c"
+    
+# Parent Directories  
+parent_dir = "D:/Pycharm projects/GeeksforGeeks/a/b"
+    
+# mode  
+mode = 0o666
+    
+path = os.path.join(parent_dir, directory)  
+    
+# Create the directory 'c'  
+     
+os.makedirs(path, mode)  
+print("Directory '% s' created" % directory)  
+    
+    
+# 'GeeksForGeeks', 'a', and 'b'  
+# will also be created if  
+# it does not exists  
+    
+# If any of the intermediate level  
+# directory is missing   
+# os.makedirs() method will  
+# create them  
+    
+# os.makedirs() method can be   
+# used to create a directory tree
+# Python program to explain os.makedirs() method   
+      
+# importing os module   
+import os  
+    
+# os.makedirs() method will raise  
+# an OSError if the directory  
+# to be created already exists  
+    
+       
+# Directory  
+directory = "Nikhil"
+    
+# Parent Directory path  
+parent_dir = "D:/Pycharm projects/GeeksForGeeks/Authors"
+    
+# Path  
+path = os.path.join(parent_dir, directory)  
+    
+# Create the directory  
+# 'Nikhil'  
+os.makedirs(path)  
+print("Directory '% s' created" % directory)  
+# Python program to explain os.makedirs() method 
+  
+# importing os module 
+import os 
+  
+# os.makedirs() method will raise 
+# an OSError if the directory 
+# to be created already exists 
+# But It can be suppressed by 
+# setting the value of a parameter 
+# exist_ok as True 
+  
+# Directory 
+directory = "Nikhil"
+  
+# Parent Directory path 
+parent_dir = "D:/Pycharm projects/GeeksForGeeks/Authors"
+  
+# Path 
+path = os.path.join(parent_dir, directory) 
+  
+# Create the directory 
+# 'Nikhil' 
+try: 
+    os.makedirs(path, exist_ok = True) 
+    print("Directory '%s' created successfully" % directory) 
+except OSError as error: 
+    print("Directory '%s' can not be created" % directory) 
+  
+# By setting exist_ok as True 
+# error caused due already 
+# existing directory can be suppressed 
+# but other OSError may be raised 
+# due to other error like 
+# invalid path name 
