@@ -1,0 +1,260 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "project1.ipynb",
+      "provenance": []
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "puwOR4GGA_GR"
+      },
+      "source": [
+        "import numpy as np\r\n",
+        "import matplotlib.pyplot as plt\r\n",
+        "import cv2 # opencv"
+      ],
+      "execution_count": 3,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "mYpfbM_ODbgU"
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "uKAQdkCLB-Q_"
+      },
+      "source": [
+        "img = plt.imread(\"GROUP_NAME.jpg\")"
+      ],
+      "execution_count": 66,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "b-tJ4Mlu6E-2",
+        "outputId": "b13ce8b1-e65d-4e1a-a919-7a36171692db"
+      },
+      "source": [
+        "img.shape"
+      ],
+      "execution_count": 67,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "(1280, 960, 3)"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 67
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 286
+        },
+        "id": "hfU_3Q0nBGwp",
+        "outputId": "34cd1d31-1ed8-43db-cda3-133673864315"
+      },
+      "source": [
+        "plt.imshow(img)"
+      ],
+      "execution_count": 68,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "<matplotlib.image.AxesImage at 0x7fbf4241d588>"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 68
+        },
+        {
+          "output_type": "display_data",
+          "data": {
+           "text/plain": [
+              "<Figure size 432x288 with 1 Axes>"
+            ]
+          },
+          "metadata": {
+            "tags": [],
+            "needs_background": "light"
+          }
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "MxRk27wmF5P2"
+      },
+      "source": [
+        "## haar cascade files github"
+      ],
+      "execution_count": 69,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "myWOVocTI0Pr"
+      },
+      "source": [
+        "dect = cv2.CascadeClassifier(\"haarcascade_frontalface_default.xml\")"
+      ],
+      "execution_count": 70,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "4CZTbBWNJIa6"
+      },
+      "source": [
+        "facenum = dect.detectMultiScale(img, 1.5)"
+      ],
+      "execution_count": 77,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "HMkJCxL9Jr5S"
+      },
+      "source": [
+        "for ele in facenum:\r\n",
+        "  x,y,z,w = ele\r\n",
+        "  img = cv2.rectangle(img, (x, y), (x+z, y+w), (255,0,0), 3)"
+      ],
+      "execution_count": 72,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "HDzn5fL-p_62"
+      },
+      "source": [
+        "x,y,z,w = facenum[0]"
+      ],
+      "execution_count": 73,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "2lhoFXJ_qtok"
+      },
+      "source": [
+        "img = cv2.rectangle(img, (x, y), (x+z, y+w), (255,0,0), 3)"
+      ],
+      "execution_count": 74,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "ghDr5WECrGLY"
+      },
+      "source": [
+        ""
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 286
+        },
+        "id": "C5sXyk3-sAWk",
+        "outputId": "0e340db7-e762-4053-dd86-3e837daf726e"
+      },
+      "source": [
+        "plt.imshow(img)"
+      ],
+      "execution_count": 75,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "<matplotlib.image.AxesImage at 0x7fbf423fd7b8>"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 75
+        },
+        {
+          "output_type": "display_data",
+          "data": {
+           "text/plain": [
+              "<Figure size 432x288 with 1 Axes>"
+            ]
+          },
+          "metadata": {
+            "tags": [],
+            "needs_background": "light"
+          }
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "DNcIq5FXsMNh"
+      },
+      "source": [
+        "plt.imsave(\"modified.jpg\",img )"
+      ],
+      "execution_count": 81,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "qB3xaMzYu6sQ"
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
